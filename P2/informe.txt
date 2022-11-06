@@ -1,0 +1,139 @@
+Autores: Carlos Martinez Rabunal y anton Lopez Nuñez
+Logins: carlos.martinez4@udc.es y anton.lopez.nunez@udc.es
+
+Notas Iniciales
+- Todas las referencias a tiempos estan expresadas en microsegundos a no ser que se indique lo contrario
+- Los algoritmos han sido ejecutados en un ordenador con las siguientes caracteristicas tecnicas:
+    Procesador: Intel i7 1165G7 2.80GHz
+	Memoria Ram: 12GB
+	Fabricante: HP
+	Sistema Operativo: Ubuntu 22.
+- Las lineas de las tablas marcadas con un * son aquellas que se han ejecutado muchas veces, porque no alcanzaban los 500 micosegundos
+
+En este informe se exponen los resultados del estudio de dos algoritmos de ordenacion de vectores
+(Ordenacion por insercion y Quicksort (Ordenacion Rapida)).
+El objetivo es el estudio del funcionamiento y la complejidad de ambos algoritmos para diferentes vectores.
+
+Tras implementar ambos algoritmos y comprobar su correcto funcionamiento con varios tipos de inicializaciones y tamaños de vector,
+procedimos a realizar mediciones del tiempo de ejecucion de cada algoritmo para las diferentes situaciones.
+
+Test Ordenacion por Insercion:
+	Ordenacion por insercion con inicializacion aleatoria:       -8   1  -1  -8  10   0 -10   2  -5  -7 
+	Numeros ordenados:                                          -10  -8  -8  -7  -5  -1   0   1   2  10 
+	Numeros en descendente:                                      10   9   8   7   6   5   4   3   2   1 
+	Ordenacion por insercion con inicializacion descendente:      1   2   3   4   5   6   7   8   9  10 
+Test Ordenacion Rapida:
+	Inicializacion aleatoria:                                    -5  -1  -9  10   5   6   7  -1   2  -8 
+	Ordenacion por insercion con inicializacion aleatoria:       -9  -8  -5  -1  -1   2   5   6   7  10 
+	Numeros en descendente:                                      10   9   8   7   6   5   4   3   2   1 
+	Ordenacion por insercion con inicializacion descendente:      1   2   3   4   5   6   7   8   9  10
+
+Analizaremos ahora los resultados obtenidos empiricamente y comentaremos su comportamiento en los casos mas y menos favorables,
+asi como los casos medios.
+
+Comenzaremos con el algoritmo de Ordenacion por Insercion
+Complejidades Teoricas
+- Peor caso, ordenado descendente O(n²)
+- Caso medio, sin duplicados y permutaciones equiprobables O(n²)
+- Mejor caso, entrada ordenada O(n)
+
+Para este algoritmo estudiamos las siguientes situaciones iniciales:
+- Con un vector entrada previamente ordenado en orden ascendente
+- Con un vector entrada previamente ordenado en orden descendente
+- Con un vector entrada inicialmente desordenado con valores aleatorios
+
+
+Para el estudio de las situaciones citadas, empleamos vectores de distintos tamaños (500, 1000, 2000, 4000, 8000, 16000, 32000)
+
+Para el caso del vector ordenado ascendentemente, obtuvimos la siguiente tabla de tiempos
+
+Ordenacion por insercion, con inicializacion ascendente:
+         n           t(n)   t(n)/n^(1.8)     t(n)/n^(2)   t(n)/n^(2.2)
+       500          1.180     0.00001636   0.0000047200  0.00000136191
+      1000          2.691     0.00001071   0.0000026910  0.00000067595
+      2000          4.769     0.00000545   0.0000011923  0.00000026071
+      4000          9.518     0.00000312   0.0000005949  0.00000011324
+      8000         17.597     0.00000196   0.0000002750  0.00000004557
+     16000         38.893     0.00000185   0.0000001519  0.00000002192
+     32000         72.208     0.00000156   0.0000000705  0.00000000886
+
+
+
+Para el caso del vector ordenado descendentemente, obtuvimos la siguiente tabla de tiempos
+
+Ordenacion por insercion, con inicializacion descendente:
+         n           t(n)   t(n)/n^(1.8)     t(n)/n^(2)   t(n)/n^(2.2)
+       500        250.286     0.00346969   0.0010011440  0.00028887007
+      1000       1061.000     0.00422392   0.0010610000  0.00026651115
+      2000       3917.000     0.00447816   0.0009792500  0.00021413496
+      4000      15958.000     0.00523927   0.0009973750  0.00018986568
+      8000      63289.000     0.00596714   0.0009888906  0.00016388163
+     16000     253372.000     0.00686029   0.0009897344  0.00014278897
+     32000    1023719.000     0.00795996   0.0009997256  0.00012555986
+
+La constante a la que tiende la cota ajustada es 0.001
+Asimismo la cota subestimada crece y la sobrestimada decrece.
+
+Para el caso del vector desordenado, obtuvimos la siguiente tabla de tiempos
+
+Ordenacion por insercion, con inicializacion aleatoria:
+         n           t(n)   t(n)/n^(1.8)     t(n)/n^(2)   t(n)/n^(2.2)
+       500        130.323     0.00180665   0.0005212920  0.00015041358
+      1000        532.000     0.00211793   0.0005320000  0.00013363236
+      2000       1996.000     0.00228195   0.0004990000  0.00010911753
+      4000       8366.000     0.00274669   0.0005228750  0.00009953731
+      8000      31922.000     0.00300973   0.0004987812  0.00008265938
+     16000     126861.000     0.00343488   0.0004955508  0.00007149311
+     32000     512249.000     0.00398301   0.0005002432  0.00006282770
+
+La constante a la que tiende la cota ajustada es 0.0005.
+Asimismo la cota subestimada crece y la sobrestimada decrece.
+
+Las cotas obtenidas en el algoritmo de Ordenacion por Insercion fueron las siguientes:
+- Cota subestimada: n^1.8
+- Cota ajustada: n^2
+- Cota sobrestimada: n^2.2
+
+El segundo algoritmo estudiado es Quicksort o de Ordenacion Rapida
+Complejidades Teoricas
+- Peor caso, pivote siempre es el mayor o el menor elemento: O(n²)
+- Caso medio, similar a la profundidad de un arbol Binario de Busqueda O(n*log(n))
+- Mejor caso, pivote siempre coincide con la mediana: O(n*log(n))
+
+Para este algoritmo estudiamos las mismas situaciones iniciales que para el algoritmo de Ordenacion Rapida con la salvedad de que el algoritmo Quicksort
+precisa de un valor de umbral del que depende si se emplea el algoritmo de Ordenacion Rapida o no. Los valores de umbral empleados fueron 1, 10 y 100
+que corresponden con los ejecutables umb1, um10 y umb100. Cabe destacar que el umbral 1 es el que se emplea para que el algoritmo Quicksort NO haga
+uso del algoritmo de Ordenacion Rapida.
+
+Para el valor de umbral 1, obtuvimos las siguientes tablas de tiempos
+
+Ordenacion Rapida, con inicializacion ascendente y umbral 1:
+         n           t(n)   t(n)/n         t(n)/n*log(n)   t(n)/n^(2.2)
+       500          1.191     0.00001651   0.0003832905  0.00000137460
+      1000          2.382     0.00000948   0.0003448298  0.00000059833
+      2000          4.604     0.00000526   0.0003028588  0.00000025169
+      4000          9.043     0.00000297   0.0002725749  0.00000010759
+      8000         18.380     0.00000173   0.0002556414  0.00000004759
+     16000         37.941     0.00000103   0.0002449616  0.00000002138
+     32000         71.570     0.00000156   0.0002156036  0.00000000878
+
+Ordenacion Rapida, con inicializacion descendente:
+         n           t(n)   t(n)/n         t(n)/n*log(n)   t(n)/n^(2.2)
+       500         31.936     0.00044273   0.0102777197  0.00003685925
+      1000         66.128     0.00026326   0.0095730085  0.00001661060
+      2000        138.205     0.00015800   0.0090913547  0.00000755541
+      4000        294.811     0.00009679   0.0088862200  0.00000350761
+      8000        624.000     0.00005883   0.0086790132  0.00000161580
+     16000       1215.000     0.00003290   0.0078445043  0.00000068472
+     32000       2374.000     0.00001846   0.0071516425  0.00000029117
+
+Las cotas obtenidas en el algoritmo de Ordenacion Rapida fueron las siguientes:
+- Cota subestimada: n
+- Cota ajustada: n*log(n)
+- Cota sobrestimada: n^1.3
+
+Despues de analizar el comportamiento para los tres umbrales podemos concluir que:
+- El mejor umbral para un vector ordenado ascendentemente es el umbral 100. Cuanto mayor es el umbral,
+mejores resultados obtenemos para un vector ordenado ascendentemente.
+- El mejor umbral para un vector desordenado es el umbral 10.
+- El mejor umbral para un vector ordenado descendentemente es el umbral 1

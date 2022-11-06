@@ -1,0 +1,3 @@
+/home/anton/Uni/Year 2/Cuatri_1/Algoritmos/Practicas/P1/cmake-build-debug/CMakeFiles/P1.dir
+/home/anton/Uni/Year 2/Cuatri_1/Algoritmos/Practicas/P1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/anton/Uni/Year 2/Cuatri_1/Algoritmos/Practicas/P1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

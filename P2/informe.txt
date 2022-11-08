@@ -10,8 +10,7 @@ Notas Iniciales
 	Sistema Operativo: Ubuntu 22.
 - Las lineas de las tablas marcadas con un * son aquellas que se han ejecutado muchas veces, porque no alcanzaban los 500 micosegundos
 
-En este informe se exponen los resultados del estudio de dos algoritmos de ordenacion de vectores
-(Ordenacion por insercion y Quicksort (Ordenacion Rapida)).
+En este informe se exponen los resultados del estudio de dos algoritmos de ordenacion de vectores (Ordenacion por insercion y Quicksort (Ordenacion Rapida)).
 El objetivo es el estudio del funcionamiento y la complejidad de ambos algoritmos para diferentes vectores.
 
 Tras implementar ambos algoritmos y comprobar su correcto funcionamiento con varios tipos de inicializaciones y tamaños de vector,

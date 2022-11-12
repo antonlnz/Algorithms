@@ -1,0 +1,70 @@
+Autores: Carlos Martinez Rabunal y anton Lopez Nunez
+Logins: carlos.martinez4@udc.es y anton.lopez.nunez@udc.es
+
+Notas Iniciales:
+- Todas las referencias a tiempos estan expresadas en microsegundos a no ser que se indique lo contrario
+- (*) Tiempo promedio en 1000 ejecuciones
+- Los algoritmos han sido ejecutados en un ordenador con las siguientes caracteristicas tecnicas:
+    Procesador: Intel i7 1165G7 2.80GHz
+	Memoria Ram: 12GB
+	Fabricante: HP
+	Sistema Operativo: Ubuntu 22.04
+
+En este informe se exponen los resultados del estudio de la complejidad computacional de las operaciones insertar y 
+buscar en árboles binarios de búsqueda de números enteros y con un campo con la frecuencia de apariciones.
+
+Tras implementar el codigo, codificamos un test para verificar el funcionamiento de las funciones de manejo de arboles
+binarios de busqueda.
+A continuacion, implementamos otro test, para medir el tiempo que se tardaba en insertar y buscar
+en un arbol binario de busqueda de numeros enteros. Para ello, generamos un vector de numeros aleatorios 
+y lo insertamos. Y con otro vector de numeros aleatorios, en el mismo rango, buscamos en el arbol.
+
+Por ultimo creamos dos funciones para medir tiempos de las funciones insertar y buscar, y una tercera 
+funcion para crear las tablas de tiempos. Comentaremos a continuacion los resultados obtenidos.
+
+Inserción de n elementos:
+      n          t(n)         t(n)/f(n)      t(n)/g(n)      t(n)/h(n)
+    8000        910.000       0.046306       0.012027       0.007674
+   16000       2277.000       0.054054       0.012653       0.007798
+   32000       4952.000       0.054842       0.011570       0.006887
+   64000      11126.000       0.057483       0.010929       0.006284
+  128000      28259.000       0.068112       0.011671       0.006483
+  256000      63958.000       0.071916       0.011106       0.005959
+  512000     418777.000       0.081192       0.011301       0.005856
+
+t(n)/f(n) es la cota subestimada, con f(n) = n^1.1
+t(n)/g(n) es la cota ajustada, con g(n) = n^1.25
+t(n)/h(n) es la cota sobrestimada, con h(n) = n^1.3
+Como podemos observar, la cota ajustada, tiende a la constante 0.011
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+Búsqueda de n elementos:
+      n          t(n)        t(n)/f(n)      t(n)/g(n)      t(n)/h(n)
+    8000       910.000       0.047069       0.012225       0.007800
+   16000      2150.000       0.051039       0.011947       0.007363
+   32000      5115.000       0.056647       0.011951       0.007114
+   64000     11533.000       0.059586       0.011329       0.006514
+  128000     28357.000       0.068348       0.011712       0.006505
+  256000     63765.000       0.071699       0.011073       0.005941
+  512000    172009.000       0.090230       0.012559       0.006508
+
+t(n)/f(n) es la cota subestimada, con f(n) = n^1.1
+t(n)/g(n) es la cota ajustada, con g(n) = n^1.25
+t(n)/h(n) es la cota sobrestimada, con h(n) = n^1.3
+Como podemos observar, la cota ajustada, tiende a la constante 0.011
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+
+Cabe destacar que los bucles empiezan a medir tiempos en n = 8000, para que el tiempo sea mayor que 500 microsegundos.
+Esto se debe a que, despues de insertar los nodos, hay que eliminar el arbol y no hay forma de evitar esa adicion de
+tiempo que supone la ejecucion de la funcion de borrado del arbol, que hace un free() en cada nodo.
+Es por esto que la tabla comienza en n = 8000, porque es la primera medicion que supera los 500 microsegundos.
+
+Conclusion:
+Teniendo en cuenta los resultados obtenidos en las tablas de los tiempos de los anteriores algoritmos 
+y el crecimiento del tiempo de dichos algoritmos podemos afirmar que:
+Los tiempos de insercion teoricamente son menores que los de busqueda, pero en la practica vemos que no siempre es asi.
+En el caso de insertar un vector (v) en un arbol vacío es el mismo recorrido que realiza la búsqueda de ese mismo vector.
+La recurrencia de ambas funciones es similar para n elementos.
+La complejidad teorica de las funciones buscar e insertar en el caso medio son O(log(n)) en cambio tras haber estudiado
+de forma empirica la complejidad de estos algoritmos podemos determinar que su complegidad empirica es O(n^1.5).

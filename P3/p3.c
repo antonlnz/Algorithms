@@ -118,11 +118,11 @@ arbol eliminararbol(arbol a) {
 }
 
 posicion hijoizquierdo(arbol a) {
-    return a->der;
+    return a->izq;
 }
 
 posicion hijoderecho(arbol a) {
-    return a->izq;
+    return a->der;
 }
 
 int elemento(arbol a) {
@@ -131,19 +131,6 @@ int elemento(arbol a) {
 
 int numerorepeticiones(posicion p) {
     return p->num_repeticiones;
-}
-
-int alturaRecursiva(arbol a) {
-    int alturaderecha, alturaizquierda;
-
-    alturaderecha = altura(a->der);
-    alturaizquierda = altura(a->izq);
-
-    if(alturaizquierda > alturaderecha){
-        return(alturaizquierda+1);
-    }
-    else
-        return(alturaderecha+1);
 }
 
 int altura(arbol a) {
@@ -244,8 +231,10 @@ void TestInsertarBuscar () {
         t4 = microsegundos();
         
         eliminararbol(a);
-
-        printf("%7d%12.0f%15.0f\n", n, t2-t1, t4-t3);
+        if (t2-t1 < 500) {
+            printf("%7d%12.0f%15.0f\n", n, t2-t1, t4-t3);
+        }
+        
     }
 }
 

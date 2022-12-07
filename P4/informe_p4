@@ -1,0 +1,110 @@
+Autores: Carlos Martinez Rabunal y Anton Lopez Nunez
+Logins: carlos.martinez4@udc.es y anton.lopez.nunez@udc.es
+
+Notas Iniciales:
+- Todas las referencias a tiempos estan expresadas en microsegundos a no ser que se indique lo contrario
+- (*) Tiempo promedio de una ejecucion en 1000 ejecuciones
+- (**) Medicion anomala
+- Los algoritmos han sido ejecutados en un ordenador con las siguientes caracteristicas tecnicas:
+    Procesador: Intel i7 1165G7 2.80GHz
+	Memoria Ram: 12GB
+	Fabricante: HP
+	Sistema Operativo: Ubuntu 22.04
+
+En este informe se exponen los resultados del estudio de la complejidad computacional de la ordenación por monticulos de
+vectores inicializados ascendentemente, descendentemente y con numeros aleatorios.
+
+Tras implementar el codigo, creamos un test para verificar el funcionamiento de las operaciones de manejo de monticulos y
+ordenacion por monticulos.
+
+Tras estudiar la complejidad empirica de la funcion crear_monticulo(), podemos concluir que es O(n)
+
+Test para demostrar que la complejidad de crear un monticulo es O(n):
+
+nº de elementos               t                t / n
+*     2000            22.000000             0.011000
+*     4000            44.000000             0.011000
+*     8000            82.000000             0.010250
+*    16000           169.000000             0.010563
+*    32000           329.000000             0.010281
+     64000           677.000000             0.010578
+    128000          1278.000000             0.009984
+    256000          2452.000000             0.009578
+    512000          5122.000000             0.010004
+
+A la vista de los resultados, podemos constatar que la complejidad de crear un monticulo es O(n). Puesto que cada entrada de
+la tabla es el doble de grande que la anterior, tanto en tamaño del vector como en tiempo de ejecucion.
+
+Una vez implementada la funcion de ordenacion por monticulos, procedemos a estudiar la complejidad empirica de la funcion
+para tres situaciones iniciales diferentes: con un vector ordenado ascendentemente, descendentemente y desordenado.
+
+Los resultados obtenidos para un vector inicializado ascendentemente son los siguientes:
+
+Medicion de tiempos de ordenar monticulos, con vector ordenado ascendente:
+
+     n         	         t(n)	         t(n) / f(n)	         t(n) / g(n)	         t(n) / h(n)
+**  2000      	      610.00000	        0.3050000000	        0.0401268141	        0.0666950865
+*   4000      	      325.99400	        0.0814985000	        0.0098261409	        0.0155144941
+    8000      	      738.00000	        0.0922500000	        0.0102646022	        0.0152879192
+    16000     	     1587.00000	        0.0991875000	        0.0102462784	        0.0143097797
+    32000     	     3204.00000	        0.1001250000	        0.0096520061	        0.0125751314
+    64000     	     6742.00000	        0.1053437500	        0.0095190379	        0.0115178861
+    128000    	    14271.00000	        0.1114921875	        0.0094808011	        0.0106121271
+    256000    	    29240.00000	        0.1142187500	        0.0091720362	        0.0094643199
+    512000    	    61799.00000	        0.1207011719	        0.0091815334	        0.0087067785
+
+f(n) es la cota subestimada, con f(n) = n ^ 1.1
+g(n) es la cota ajustada, con g(n) = n * ln (n)
+h(n) es la cota sobrestimada, con h(n) = n ^ 1.2
+Como podemos observar, la cota ajustada, tiende a la constante 0.01
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+(**) Cabe destacar que la primera medicion de tiempos es anomala, ya que no se corresponde con la tendencia general del
+resto de las mediciones.
+
+Medicion de tiempos de ordenar monticulos, con vector ordenado descendente:
+    n         	     t(n)	         t(n) / f(n)	         t(n) / g(n)	         t(n) / h(n)
+* 2000   	      140.50900	        0.0328527060	        0.0092429156	        0.0153627212
+* 4000   	      315.68200	        0.0344337109	        0.0095153156	        0.0150237321
+  8000   	      680.00000	        0.0346026952	        0.0094578990	        0.0140864296
+  16000  	     1528.00000	        0.0362736596	        0.0098653519	        0.0137777841
+  32000  	     2898.00000	        0.0320947062	        0.0087301853	        0.0113741357
+  64000  	     6243.00000	        0.0322548750	        0.0088144992	        0.0106654054
+  128000 	    14247.00000	        0.0343393806	        0.0094648569	        0.0105942803
+  256000 	    28494.00000	        0.0320397750	        0.0089380301	        0.0092228567
+  512000 	    61329.00000	        0.0321713234	        0.0091117051	        0.0086405608
+
+f(n) es la cota subestimada, con f(n) = n ^ 1.1
+g(n) es la cota ajustada, con g(n) = n * ln (n)
+h(n) es la cota sobrestimada, con h(n) = n ^ 1.2
+Como podemos observar, la cota ajustada, tiende a la constante 0.01
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+Medicion de tiempos de ordenar monticulos, con vector desordenado :
+
+    n         	        t(n)  	         t(n) / f(n)	         t(n) / g(n)	         t(n) / h(n)
+* 2000      	      167.47900	        0.0391586187	        0.0110170470	        0.0183115187
+* 4000      	      384.32300	        0.0419208795	        0.0115842989	        0.0182904498
+  8000      	      876.00000	        0.0445764132	        0.0121839993	        0.0181466357
+  16000     	     1934.00000	        0.0459118179	        0.0124866430	        0.0174386351
+  32000     	     3934.00000	        0.0435681761	        0.0118511211	        0.0154402519
+  64000     	     8545.00000	        0.0441483112	        0.0120646958	        0.0145980921
+  128000    	    18623.00000	        0.0448868032	        0.0123720103	        0.0138483388
+  256000    	    40602.00000	        0.0456544868	        0.0127360812	        0.0131419396
+  512000    	    87520.00000	        0.0459103234	        0.0129929257	        0.0123305758
+
+f(n) es la cota subestimada, con f(n) = n ^ 1.1
+g(n) es la cota ajustada, con g(n) = n * ln (n)
+h(n) es la cota sobrestimada, con h(n) = n ^ 1.2
+Como podemos observar, la cota ajustada, tiende a la constante 0.012
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+
+Conclusion:
+
+Podemos concluir que el algoritmo de ordenacion por monticulos es muy estable para las tres situaciones
+iniciales de este estudio. De hecho, con las mismas cotas para los tres casos, obtenemos resultados muy similares
+independientemente de la inicializacion del vector.
+Ademas es especialmente eficiente, puesto que solo precisa del espacio necesario para almacenar el monticulo. Y su complejidad
+en el peor caso es O(n * log (n)), una mejora considerable respecto a la complejidad del peor caso de Quicksort, que es O(n²).
+

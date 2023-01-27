@@ -63,8 +63,8 @@ Es por esto que la tabla comienza en n = 8000, porque es la primera medicion que
 Conclusion:
 Teniendo en cuenta los resultados obtenidos en las tablas de los tiempos de los anteriores algoritmos 
 y el crecimiento del tiempo de dichos algoritmos podemos afirmar que:
-Los tiempos de insercion teoricamente son menores que los de busqueda, pero en la practica vemos que no siempre es asi.
+Los tiempos de insercion teoricamente son mayores que los de busqueda, pero en la practica vemos que no siempre es asi.
 En el caso de insertar un vector (v) en un arbol vacío es el mismo recorrido que realiza la búsqueda de ese mismo vector.
 La recurrencia de ambas funciones es similar para n elementos.
 La complejidad teorica de las funciones buscar e insertar en el caso medio son O(log(n)) en cambio tras haber estudiado
-de forma empirica la complejidad de estos algoritmos podemos determinar que su complegidad empirica es O(n^1.5).
+de forma empirica la complejidad de estos algoritmos podemos determinar que su complegidad en la practica es O(n^1.5).

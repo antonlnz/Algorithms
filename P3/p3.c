@@ -118,11 +118,19 @@ arbol eliminararbol(arbol a) {
 }
 
 posicion hijoizquierdo(arbol a) {
-    return a->izq;
+    if (a->izq == NULL) {
+        return NULL;
+    } else {
+        return a->izq;
+    }
 }
 
 posicion hijoderecho(arbol a) {
-    return a->der;
+    if (a->izq == NULL) {
+        return NULL;
+    } else {
+        return a->der;
+    }
 }
 
 int elemento(arbol a) {

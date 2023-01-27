@@ -1,0 +1,52 @@
+// Añadir nombres y cambiar "algoritmo de ordenacion" por el nombre del algoritmo estudiado
+
+En este informe se exponen los resultados del estudio de la complejidad computacional de un algoritmo de ordenacion, con
+vectores inicializados ascendentemente, descendentemente y con numeros aleatorios.
+   
+Notas Iniciales:
+- Todas las referencias a tiempos estan expresadas en microsegundos a no ser que se indique lo contrario
+- (*) Tiempo promedio de una ejecucion en 1000 ejecuciones
+- (**) Medicion anomala
+- Los algoritmos han sido ejecutados en un ordenador con las siguientes caracteristicas tecnicas:
+    --------------------------------------
+     OS: Ubuntu 22.04.1 LTS
+     CPU: Intel Core i5-6200U a 2.30GHz
+     Memoria Principal: 8 GB
+     Fabricante: ASUSTeK COMPUTER INC.
+    --------------------------------------
+
+Se valida el funcionamiento del algoritmo de ordenacion, mediante la funcion test_fun
+
+Tras estudiar la complejidad empirica del algoritmo de ordenacion, obtenemos las siguientes tablas:
+
+Inicializacion ascendente
+
+// Insertar Tabla resultados
+
+f(n) es la cota subestimada, con f(n) = 
+g(n) es la cota ajustada, con g(n) = 
+h(n) es la cota sobrestimada, con h(n) = 
+Como podemos observar, la cota ajustada, tiende a la constante 
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+Inicializacion descendente:
+
+// Insertar tabla resultados
+
+f(n) es la cota subestimada, con f(n) = 
+g(n) es la cota ajustada, con g(n) = 
+h(n) es la cota sobrestimada, con h(n) = 
+Como podemos observar, la cota ajustada, tiende a la constante 
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+Inicializacion aleatoria:
+
+// Insertar tabla resultados
+
+f(n) es la cota subestimada, con f(n) = 
+g(n) es la cota ajustada, con g(n) = 
+h(n) es la cota sobrestimada, con h(n) = 
+Como podemos observar, la cota ajustada, tiende a la constante 
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+Podemos concluir que el algoritmo...

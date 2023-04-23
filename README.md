@@ -1,6 +1,6 @@
 # Algorithms
 This repository contains the practices of the course of Algorithms of the University of A Coruña in the degree of computer engineering second course of 2022/2023.
-the documentation in Spanish is [here](https://github.com/antonlnz/Algorithms/blob/09f35e21432ca01bfcb24ba30e793d6c0c50f84d/README-ES.md)
+The documentation in Spanish is [here](https://github.com/antonlnz/Algorithms/blob/09f35e21432ca01bfcb24ba30e793d6c0c50f84d/README-ES.md)
 
 ## Content of each practice
 There are four practices with their content separated in individual folders, each of them has a pdf with the exercises to complete, a .c file with the code and a report with the answer, explanation and analysis.

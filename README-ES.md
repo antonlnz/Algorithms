@@ -1,6 +1,6 @@
 # Algoritmos
 Este repositorio contiene las prácticas de la asigatura de Algoritmos de la Universidad De A Coruña en el grado de ingeniería informática segundo curso de 2022/2023
-Documentation in english is [here](/README.md)
+Documentation in english is [here](./README.md)
 
 ## Contenido de cada práctica
 Hay cuatro prácticas con su contenido separado en carpetas individuales, cada una de ellas cuenta con un pdf con los ejercicios a completar, un archivo .c con el código y un informe con la contestación, explicación y análisis.

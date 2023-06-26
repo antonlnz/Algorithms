@@ -1,0 +1,53 @@
+// NOMBRE COMPLETO, LOGIN
+
+En este informe se exponen los resultados del estudio de la complejidad computacional de un algoritmo de ordenacion, con
+vectores inicializados ascendentemente, descendentemente y con numeros aleatorios.
+   
+Notas Iniciales:
+- Todas las referencias a tiempos estan expresadas en microsegundos a no ser que se indique lo contrario
+- (*) Tiempo promedio de una ejecucion en 10000 ejecuciones
+- (**) Medicion anomala
+- Los algoritmos han sido ejecutados en un ordenador con las siguientes caracteristicas tecnicas:
+    --------------------------------------
+     OS: SISTEMA OPERATIVO
+     CPU: PROCESADOR
+     Memoria Principal (RAM): X GB
+     Fabricante: MARCA DEL ORDENADOR
+    --------------------------------------
+
+Se valida el funcionamiento del algoritmo de ordenacion *INSERTAR NOMBRE DEL ALGORITMO*
+
+Tras estudiar la complejidad empirica del algoritmo, obtenemos las siguientes tablas de tiempos:
+
+Inicializacion ascendente
+
+INSERTAR TABLA
+
+La cota subestimada es t/AÑADIR COTA CORRESPONDIENTE A LA TABLA
+La cota ajustada es t/AÑADIR COTA CORRESPONDIENTE A LA TABLA
+La cota sobrestimada es t/AÑADIR COTA CORRESPONDIENTE A LA TABLA
+Como podemos observar, la cota ajustada, tiende a la constante AÑADIR CONSTANTE DE LA COLUMNA DE LA COTA AJUSTADA
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+Inicializacion descendente:
+
+INSERTAR TABLA
+
+La cota subestimada es t/AÑADIR COTA CORRESPONDIENTE A LA TABLA
+La cota ajustada es t/AÑADIR COTA CORRESPONDIENTE A LA TABLA
+La cota sobrestimada es t/AÑADIR COTA CORRESPONDIENTE A LA TABLA
+Como podemos observar, la cota ajustada, tiende a la constante AÑADIR CONSTANTE DE LA COLUMNA DE LA COTA AJUSTADA
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+Inicializacion aleatoria:
+
+INSERTAR TABLA
+
+La cota subestimada es t/AÑADIR COTA CORRESPONDIENTE A LA TABLA
+La cota ajustada es t/AÑADIR COTA CORRESPONDIENTE A LA TABLA
+La cota sobrestimada es t/AÑADIR COTA CORRESPONDIENTE A LA TABLA
+Como podemos observar, la cota ajustada, tiende a la constante AÑADIR CONSTANTE DE LA COLUMNA DE LA COTA AJUSTADA
+Como es de esperar, la cota subestimada crece y la cota sobrestimada decrece.
+
+
+Podemos concluir, con estos datos, que la complejidad temporal de este algoritmo es.... COMPLETAR
